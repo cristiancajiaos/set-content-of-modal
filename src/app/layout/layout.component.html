@@ -1,1 +1,42 @@
-<p>layout works!</p>
+<div class="row text-center">
+  <div class="col-12 col-lg-6">
+    <div class="form-group mb-3">
+      <label>Size</label>
+      <select class="form-control" [(ngModel)]="currentSize">
+        <option *ngFor="let size of sizes" [value]="size">
+          {{size}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-12 col-lg-6">
+    <div class="form-group mb-3">
+      <label>Centered</label>
+      <br />
+      <ui-switch [(ngModel)]="centered"></ui-switch>
+    </div>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="col-12">
+    <div class="form-group mb-3">
+      <label>Content</label>
+      <textarea class="form-control" [(ngModel)]="content"></textarea>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <div class="d-grid">
+      <button class="btn btn-primary" (click)="openModal()">
+        Abrir modal
+      </button>
+    </div>
+  </div>
+</div>
+
+<hr/>
+
+<p>Size: {{currentSize}}</p>
+<p>Centered: {{centered}}</p>
+<p>Default content: {{content}}</p>
