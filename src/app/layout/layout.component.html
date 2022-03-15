@@ -21,22 +21,32 @@
   <div class="col-12">
     <div class="form-group mb-3">
       <label>Content</label>
-      <textarea class="form-control" [(ngModel)]="content"></textarea>
+      <textarea class="form-control" [(ngModel)]="text"></textarea>
     </div>
   </div>
 </div>
 <div class="row">
   <div class="col-12">
     <div class="d-grid">
-      <button class="btn btn-primary" (click)="openModal()">
+      <button class="btn btn-primary" (click)="openModal(content)">
         Abrir modal
       </button>
     </div>
   </div>
 </div>
 
-<hr/>
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Modal</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <p>{{text}}</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-danger" (click)="modal.close('Save click')">
+      <i class="fa-solid fa-times"></i> Close
+    </button>
+  </div>
+</ng-template>
 
-<p>Size: {{currentSize}}</p>
-<p>Centered: {{centered}}</p>
-<p>Default content: {{content}}</p>

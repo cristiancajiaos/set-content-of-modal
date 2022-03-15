@@ -1,4 +1,3 @@
-import { ModalComponent } from './modal/modal.component';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -12,7 +11,7 @@ export class LayoutComponent implements OnInit {
 
   currentSize = this.sizes[1];
   centered = false;
-  content = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta convallis mauris sed auctor. Suspendisse laoreet lacus a magna auctor, vitae suscipit orci commodo.';
+  text = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam porta convallis mauris sed auctor. Suspendisse laoreet lacus a magna auctor, vitae suscipit orci commodo.';
 
   constructor(
     private modal: NgbModal
@@ -20,8 +19,8 @@ export class LayoutComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  openModal(): void {
-    this.modal.open(ModalComponent, {
+  openModal(content: any): void {
+    this.modal.open(content, {
       size: this.currentSize,
       centered: this.centered,
     }).result.then((resolve) => {
